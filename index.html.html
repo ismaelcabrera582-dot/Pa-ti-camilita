@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Disculpa para Camila 💕</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: linear-gradient(135deg, #000000, #3a0ca3, #f72585);
+      color: #fff;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2.5em;
+      color: #ffb3c6;
+      text-shadow: 0 0 15px #ff4d6d;
+    }
+
+    .heart {
+      width: 150px;
+      height: 150px;
+      position: relative;
+      background: red;
+      transform: rotate(-45deg);
+      animation: latir 1s infinite;
+      margin-bottom: 30px;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 150px;
+      height: 150px;
+      background: red;
+      border-radius: 50%;
+      position: absolute;
+    }
+    .heart::before {
+      top: -75px;
+      left: 0;
+    }
+    .heart::after {
+      left: 75px;
+      top: 0;
+    }
+    @keyframes latir {
+      0%, 100% { transform: scale(1) rotate(-45deg); }
+      50% { transform: scale(1.2) rotate(-45deg); }
+    }
+
+    #mensaje {
+      margin-top: 20px;
+      font-size: 1.2em;
+      line-height: 1.6;
+      white-space: pre-line;
+      max-width: 80%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Para Camila 💕</h1>
+  <div class="heart"></div>
+  <div id="mensaje"></div>
+
+  <script>
+    const texto = [
+      "❤️ Sé que no somos perfectos y cometemos errores.",
+      "❤️ Somos humanos y nos podemos equivocar,",
+      "❤️ pero quiero que tengas claro que lo que siento es real.",
+      "❤️ No quiero que una tontera borre lo bonito que hemos vivido,",
+      "❤️ ni perder todo este tiempo de relación por un mal momento.",
+      "❤️ Ojalá podamos seguir construyendo juntos,",
+      "❤️ porque para mí tú vales demasiado ✨💖.",
+      "💖 Te pido perdón de corazón 💖"
+    ];
+
+    let i = 0, j = 0;
+    const velocidad = 50; // Velocidad de tipeo
+    const mensajeDiv = document.getElementById("mensaje");
+
+    function escribir() {
+      if (i < texto.length) {
+        if (j < texto[i].length) {
+          mensajeDiv.innerHTML += texto[i][j];
+          j++;
+          setTimeout(escribir, velocidad);
+        } else {
+          mensajeDiv.innerHTML += "<br>";
+          i++;
+          j = 0;
+          setTimeout(escribir, 600);
+        }
+      }
+    }
+
+    escribir();
+  </script>
+</body>
+</html>
